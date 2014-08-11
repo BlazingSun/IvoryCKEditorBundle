@@ -4,7 +4,7 @@
 CKEDITOR.plugins.add( 'boewacompatibility', {
     init: function( editor ) {
         editor.on('instanceReady', function() {
-            $.fn.boewaManagerLightbox("resize");
+            $(window).trigger('resize');
 
             //FIXME: does not work like this, because the editor is inside an iframe
             $("#form",parent.document).on('form-pre-serialize',function(){
@@ -16,7 +16,8 @@ CKEDITOR.plugins.add( 'boewacompatibility', {
             });
         });
         editor.on('resize', function() {
-                $.fn.boewaManagerLightbox("resize")}
+                $(window).trigger('resize');
+            }
         );
 
     }
