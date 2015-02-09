@@ -7,7 +7,6 @@ CKEDITOR.plugins.add( 'boewacompatibility', {
             $(window).trigger('resize');
             jQuery( editor.element.$ ).on('remote.replace.content', function() {
                     //Damit der Editor sich updated wenn das unterliegende Element verändert wird
-                    console.log(jQuery( editor.element.$).html());
                     editor.setData(jQuery( editor.element.$).html());
                 }
             );
