@@ -7,7 +7,8 @@ CKEDITOR.plugins.add( 'boewacompatibility', {
             $(window).trigger('resize');
             jQuery( editor.element.$ ).on('remote.replace.content', function() {
                     //Damit der Editor sich updated wenn das unterliegende Element verändert wird
-                    editor.setData(jQuery( editor.element.$).html());
+                    var decoded = $("<div/>").html(jQuery( editor.element.$).html()).text();
+                    editor.setData(decoded);
                 }
             );
             //FIXME: does not work like this, because the editor is inside an iframe
